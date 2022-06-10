@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ТендерПро</title>
+    <title>ТендерПро 11</title>
 
     <!-- styles -->
     <link rel="stylesheet" href="css/main.css">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="header-rates is-loading js_header-rates">
-                Курс USD на <span class="js_header-rates-date">00.00.0000</span> составляет: <span class="js_header-rates-value">00,0000</span>
+                Курс USD на <span id="today">00.00.0000</span> составляет: <span id="USD">00,0000</span>
                 <span></span>
             </div>
 
@@ -82,8 +82,10 @@
 </div>
 
 <!-- scripts -->
-<script src="//code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="js/main.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link rel="dns-prefetch" href="https://www.cbr-xml-daily.ru/" />
+<script src="//www.cbr-xml-daily.ru/daily_jsonp.js" async></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

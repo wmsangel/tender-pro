@@ -1,18 +1,5 @@
 $(function () {
 
-    // КУРС ВАЛЮТ
-    $.ajax({
-        method: 'GET',
-        url: 'script.php',
-        success: function(response) {
-            var json = JSON.parse(response);
-            $('.js_header-rates-value').text(json.Record.Value)
-            $('.js_header-rates-date').text(json.Record['@attributes'].Date)
-            $('.js_header-rates').removeClass('is-loading')
-        }
-    });
-
-
     // POPUP
     $('body')
         .on('click', '.js_open-popup', function (e) {
@@ -55,4 +42,24 @@ function checkName() {
     }
 
     $('.js_overlay, .js_popup').hide();
+}
+
+
+// DATE For currency
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = mm + '.' + dd + '.' + yyyy;
+
+var todayDate = document.getElementById('today');
+todayDate.innerHTML = todayDate.innerHTML.replace('00.00.0000',today);
+
+
+// Currency
+function CBR_XML_Daily_Ru(rates) {
+    var USDrate = rates.Valute.USD.Value.toFixed(4).replace('.', ',');
+    var USD = document.getElementById('USD');
+    USD.innerHTML = USD.innerHTML.replace('00,0000', USDrate);
+    $('.js_header-rates').removeClass('is-loading')
 }
